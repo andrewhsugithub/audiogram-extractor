@@ -201,14 +201,27 @@ def main():
     final_x = final_x[1:-1]  # Remove first and last (borders)
     final_y = final_y[1:-1]  # Remove first and last (borders)
 
-    x = [125, 250, 500, 750, 1000, 1500, 2000, 3000, 4000, 6000, 8000, 12000]
-    y = [-10, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120]
+    DEFAULT_FREQUENCIES = [
+        125,
+        250,
+        500,
+        750,
+        1000,
+        1500,
+        2000,
+        3000,
+        4000,
+        6000,
+        8000,
+        12000,
+    ]
+    DEFAULT_DB_LEVELS = [-10, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120]
     print("\nX-axis mapping (pixels → frequency):")
-    for px, freq in zip(final_x, x):
+    for px, freq in zip(final_x, DEFAULT_FREQUENCIES):
         print(f"  {px:4d} px → {freq:5d} Hz")
 
     print("\nY-axis mapping (pixels → dB HL):")
-    for py, db in zip(final_y, y):
+    for py, db in zip(final_y, DEFAULT_DB_LEVELS):
         print(f"  {py:4d} px → {db:4d} dB HL")
 
 
