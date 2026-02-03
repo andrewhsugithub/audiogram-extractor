@@ -10,14 +10,14 @@ def detect_and_draw_grid(img):
         gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 2
     )
     # Connect dashed lines
-    kernel = np.ones((3, 3), np.uint8)
-    connected = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel, iterations=3)
+    # kernel = np.ones((3, 3), np.uint8)
+    # connected = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel, iterations=3)
 
     # Isolate H/V lines
-    h_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (40, 1))
-    h_lines = cv2.morphologyEx(connected, cv2.MORPH_OPEN, h_kernel)
-    v_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (1, 40))
-    v_lines = cv2.morphologyEx(connected, cv2.MORPH_OPEN, v_kernel)
+    h_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (300, 1))
+    h_lines = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, h_kernel)
+    v_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (1, 300))
+    v_lines = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, v_kernel)
 
     # Combine
     grid_mesh = cv2.add(h_lines, v_lines)
@@ -188,6 +188,10 @@ def mark_lines(image_path, output_path):
 
 def main():
     IMAGE = "assets/2024/test.jpg"
+    IMAGE = "assets/10954208102_20240102_41922_1.jpg"
+    IMAGE = "assets/10954219774_20240102_41922_1.jpg"
+    IMAGE = "assets/10954348673_20240103_41922_1.jpg"
+    IMAGE = "assets/11030154329_20250102_41922_1.jpg"
     img = cv2.imread(IMAGE)
     x, y, w, h = detect_and_draw_grid(img)
     final_x, final_y, final_w, final_h = refine_crop(img, (x, y, w, h))
