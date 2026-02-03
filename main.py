@@ -187,11 +187,7 @@ def mark_lines(image_path, output_path):
 
 
 def main():
-    IMAGE = "assets/2024/test.jpg"
-    IMAGE = "assets/10954208102_20240102_41922_1.jpg"
-    IMAGE = "assets/10954219774_20240102_41922_1.jpg"
-    IMAGE = "assets/10954348673_20240103_41922_1.jpg"
-    IMAGE = "assets/11030154329_20250102_41922_1.jpg"
+    IMAGE = "assets/org.jpg"
     img = cv2.imread(IMAGE)
     x, y, w, h = detect_and_draw_grid(img)
     final_x, final_y, final_w, final_h = refine_crop(img, (x, y, w, h))

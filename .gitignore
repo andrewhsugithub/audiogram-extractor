@@ -11,6 +11,10 @@ wheels/
 
 *.jpg
 *.png
+!assets/org.jpg
+!assets/bbox.png
+!assets/debug.png
+!assets/lines.png
 
 .DS_Store
 
