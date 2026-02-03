@@ -2,6 +2,10 @@
 
 Extracting audiograms from images using image processing techniques.
 
+
+https://github.com/user-attachments/assets/c89c4cb8-c94a-4873-9746-6a1ab04c6bb0
+
+
 ## Usage
 
 ```bash
