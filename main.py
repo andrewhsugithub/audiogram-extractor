@@ -187,7 +187,7 @@ def mark_lines(image_path, output_path):
 
 
 def main():
-    IMAGE = "assets/test.jpg"
+    IMAGE = "assets/2024/test.jpg"
     img = cv2.imread(IMAGE)
     x, y, w, h = detect_and_draw_grid(img)
     final_x, final_y, final_w, final_h = refine_crop(img, (x, y, w, h))
@@ -199,13 +199,13 @@ def main():
 
     x = [125, 250, 500, 750, 1000, 1500, 2000, 3000, 4000, 6000, 8000, 12000]
     y = [-10, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120]
-    # Print mapping
-    print("X-axis mapping (pixels to freq):")
+    print("\nX-axis mapping (pixels → frequency):")
     for px, freq in zip(final_x, x):
-        print(f"Pixel: {px} -> Frequency: {freq} Hz")
-    print("Y-axis mapping (pixels to dB HL):")
+        print(f"  {px:4d} px → {freq:5d} Hz")
+
+    print("\nY-axis mapping (pixels → dB HL):")
     for py, db in zip(final_y, y):
-        print(f"Pixel: {py} -> Hearing Level: {db} dB HL")
+        print(f"  {py:4d} px → {db:4d} dB HL")
 
 
 if __name__ == "__main__":
